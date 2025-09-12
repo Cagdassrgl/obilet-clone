@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:obilet_clone/app.dart';
+import 'package:obilet_clone/core/theme/app_theme.dart';
 
 void main() {
   runApp(const MainApp());
@@ -10,6 +11,11 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(home: Scaffold(body: App()));
+    return MaterialApp(
+      theme: AppTheme.lightTheme,
+      themeMode: ThemeMode.light,
+      debugShowCheckedModeBanner: false,
+      home: App(),
+    );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:obilet_clone/features/onboarding/presentation/pages/onboarding_page.dart';
 
 class App extends StatefulWidget {
   const App({super.key});
@@ -10,6 +11,6 @@ class App extends StatefulWidget {
 class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(body: OnboardingPage());
   }
 }
