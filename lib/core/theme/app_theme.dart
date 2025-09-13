@@ -4,12 +4,7 @@ class AppTheme {
   // Ana renkler
   static const Color primary = Color(0xFF580D2F); // Bordo
   static const Color secondary = Color(0xFF133261); // Mavi vurgu
-  static const Color error = Color.fromARGB(
-    255,
-    182,
-    2,
-    2,
-  ); // Kırmızı hata rengi
+  static const Color error = Color.fromARGB(255, 182, 2, 2); // Kırmızı hata rengi
   static const Color backgroundLight = Color(0xFFF4F4F4); // Açık gri
   static const Color textPrimary = Color(0xFF1C1C1C); // Koyu gri-siyah
   static const Color textSecondary = Color(0xFF757575); // Açık gri yazı
@@ -19,10 +14,14 @@ class AppTheme {
     brightness: Brightness.light,
     primaryColor: primary,
     scaffoldBackgroundColor: backgroundLight,
-    appBarTheme: const AppBarTheme(
-      backgroundColor: primary,
-      foregroundColor: Colors.white,
-      elevation: 0,
+    appBarTheme: const AppBarTheme(backgroundColor: primary, foregroundColor: Colors.white, elevation: 0),
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      backgroundColor: Colors.white,
+      selectedItemColor: secondary,
+      unselectedItemColor: Colors.grey,
+      showUnselectedLabels: true,
+      selectedLabelStyle: TextStyle(color: secondary, fontWeight: FontWeight.w600),
+      unselectedLabelStyle: TextStyle(color: Colors.grey),
     ),
     colorScheme: const ColorScheme.light(
       primary: primary,
@@ -37,10 +36,7 @@ class AppTheme {
       filled: true,
       fillColor: backgroundLight,
       contentPadding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
-      border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(8),
-        borderSide: BorderSide.none,
-      ),
+      border: OutlineInputBorder(borderRadius: BorderRadius.circular(8), borderSide: BorderSide.none),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8),
         borderSide: BorderSide(color: primary, width: 2),
@@ -50,10 +46,7 @@ class AppTheme {
     ),
     textTheme: const TextTheme(
       headlineLarge: TextStyle(color: textPrimary, fontWeight: FontWeight.bold),
-      headlineMedium: TextStyle(
-        color: textPrimary,
-        fontWeight: FontWeight.bold,
-      ),
+      headlineMedium: TextStyle(color: textPrimary, fontWeight: FontWeight.bold),
       headlineSmall: TextStyle(color: textPrimary, fontWeight: FontWeight.bold),
       titleLarge: TextStyle(color: textPrimary, fontWeight: FontWeight.w600),
       titleMedium: TextStyle(color: textPrimary, fontWeight: FontWeight.w600),
@@ -69,10 +62,9 @@ class AppTheme {
       style: ElevatedButton.styleFrom(
         backgroundColor: secondary,
         foregroundColor: Colors.white,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(12)),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(12))),
         padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 24),
+        shadowColor: secondary.withValues(alpha: 0.5),
       ),
     ),
   );

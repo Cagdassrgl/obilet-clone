@@ -18,27 +18,11 @@ extension WidgetExtensions on Widget {
   }
 
   Widget withPaddingSymmetric({double horizontal = 0, double vertical = 0}) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: horizontal, vertical: vertical),
-      child: this,
-    );
+    return Padding(padding: EdgeInsets.symmetric(horizontal: horizontal, vertical: vertical), child: this);
   }
 
-  Widget withPaddingOnly({
-    double left = 0,
-    double top = 0,
-    double right = 0,
-    double bottom = 0,
-  }) {
-    return Padding(
-      padding: EdgeInsets.only(
-        left: left,
-        top: top,
-        right: right,
-        bottom: bottom,
-      ),
-      child: this,
-    );
+  Widget withPaddingOnly({double left = 0, double top = 0, double right = 0, double bottom = 0}) {
+    return Padding(padding: EdgeInsets.only(left: left, top: top, right: right, bottom: bottom), child: this);
   }
 
   Widget withMargin(EdgeInsetsGeometry margin) {
@@ -66,10 +50,7 @@ extension WidgetExtensions on Widget {
   }
 
   Widget withClipRRect({BorderRadius? borderRadius}) {
-    return ClipRRect(
-      borderRadius: borderRadius ?? BorderRadius.zero,
-      child: this,
-    );
+    return ClipRRect(borderRadius: borderRadius ?? BorderRadius.zero, child: this);
   }
 
   Widget withVisibility(bool isVisible) {
