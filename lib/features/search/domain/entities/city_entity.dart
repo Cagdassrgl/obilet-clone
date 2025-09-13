@@ -1,36 +1,26 @@
+import 'package:obilet_clone/core/models/city_model.dart';
+
 class CityEntity {
+  const CityEntity({required this.id, required this.name, required this.plateCode});
+
+  final int id;
   final String name;
-  final String country;
-  final double latitude;
-  final double longitude;
+  final String plateCode;
 
-  CityEntity({
-    required this.name,
-    required this.country,
-    required this.latitude,
-    required this.longitude,
-  });
+  factory CityEntity.fromModel(CityModel model) =>
+      CityEntity(id: model.id, name: model.name, plateCode: model.plateCode);
 
-  factory CityEntity.fromJson(Map<String, dynamic> json) {
-    return CityEntity(
-      name: json['name'],
-      country: json['country'],
-      latitude: json['latitude'].toDouble(),
-      longitude: json['longitude'].toDouble(),
-    );
-  }
+  CityModel toModel() => CityModel(id: id, name: name, plateCode: plateCode);
 
-  Map<String, dynamic> toJson() {
-    return {
-      'name': name,
-      'country': country,
-      'latitude': latitude,
-      'longitude': longitude,
-    };
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    return other is CityEntity && other.id == id && other.name == name && other.plateCode == plateCode;
   }
 
   @override
-  String toString() {
-    return 'CityEntity{name: $name, country: $country, latitude: $latitude, longitude: $longitude}';
-  }
+  int get hashCode => id.hashCode ^ name.hashCode ^ plateCode.hashCode;
+
+  @override
+  String toString() => 'CityEntity(id: $id, name: $name, plateCode: $plateCode)';
 }

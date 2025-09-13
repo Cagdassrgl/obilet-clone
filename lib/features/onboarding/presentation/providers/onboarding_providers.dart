@@ -26,7 +26,7 @@ final getOnboardingItemsUseCaseProvider = Provider<GetOnboardingItemsUseCase>((r
 //MARK: onboardingItemsProvider
 final onboardingItemsProvider = FutureProvider<List<OnboardingEntity>>((ref) async {
   final useCase = ref.watch(getOnboardingItemsUseCaseProvider);
-  return await useCase();
+  return await useCase.call();
 });
 
 //MARK: currentPageProvider

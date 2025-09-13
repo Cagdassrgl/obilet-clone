@@ -7,30 +7,31 @@ class CustomDropdown extends StatelessWidget {
     required this.labelText,
     required this.hintText,
     required this.items,
+    this.selectedValue,
+    this.onChanged,
     super.key,
   });
 
   final String labelText;
   final String hintText;
-
   final List<DropdownItemModel> items;
+  final dynamic selectedValue;
+  final void Function(dynamic)? onChanged;
 
   @override
   Widget build(BuildContext context) {
     return DropdownButtonFormField(
-      items:
-          items
-              .map(
-                (e) => DropdownMenuItem(value: e.value, child: Text(e.label)),
-              )
-              .toList(),
-      onChanged: (value) {},
+      initialValue: selectedValue,
+      items: items.map((e) => DropdownMenuItem(value: e.value, child: Text(e.label))).toList(),
+      onChanged: onChanged,
+      menuMaxHeight: 300,
+      alignment: AlignmentDirectional.bottomStart,
       decoration: InputDecoration(
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
         contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
         labelText: labelText,
         hintText: hintText,
       ),
-    ).withPaddingSymmetric(horizontal: 16);
+    ).withPaddingSymmetric(horizontal: 8);
   }
 }
